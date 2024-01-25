@@ -73,6 +73,20 @@
     border: 1px solid #ccc;
     border-radius: 4px;
   }
+
+  .form-error {
+    width: 40%;
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #dc3545;
+  }
+
+  .error-message {
+    color: #dc3545;
+    font-size: 14px;
+    margin-top: 5px;
+  }
   
   .btn-group {
     margin-top: .0001px;
