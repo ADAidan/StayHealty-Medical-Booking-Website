@@ -4,7 +4,7 @@ import Navbar from './components/Navbar/Navbar';
 import LandingPage from './components/Landing_Page/LandingPage';
 import SignUp from './components/Sign_Up/Sign_Up';
 import Login from './components/Login/Login';
-import InstantConsultation from './components/InstantConsultationBooking/InstantConsultation';
+import InstantConsultation from './components/BookingConsultation/BookingConsultation';
 
 function App() {
 
