@@ -46,7 +46,7 @@ const Sign_Up = () => {
                 sessionStorage.setItem("phone", phone);
                 sessionStorage.setItem("email", email);
                 // Redirect to home page
-                navigate("/");   //on directing to home page you need to give logic to change login and signup buttons with name of the user and logout button where you have implemented Navbar functionality
+                navigate("/");
                 window.location.reload();
             } else {
                 if (json.errors) {
@@ -93,7 +93,6 @@ const Sign_Up = () => {
          </div>
          </div>
          </div>
- //Sign up role is not stored in database. You can apply logic for this according to your react code.
     );
 }
 
