@@ -10,13 +10,18 @@ const DoctorCard = ({ name, speciality, experience, ratings, profilePic }) => {
   const [showModal, setShowModal] = useState(false);
   const [appointments, setAppointments] = useState([]);
 
+  const updateAppointments = (updatedAppointments) => {
+    setAppointments(updatedAppointments);
+    localStorage.setItem('doctorData', JSON.stringify(updatedAppointments));
+  };
+
   const handleBooking = () => {
     setShowModal(true);
   };
 
   const handleCancel = (appointmentId) => {
     const updatedAppointments = appointments.filter((appointment) => appointment.id !== appointmentId);
-    setAppointments(updatedAppointments);
+    updateAppointments(updatedAppointments);
   };
 
   const handleFormSubmit = (appointmentData) => {
@@ -25,7 +30,7 @@ const DoctorCard = ({ name, speciality, experience, ratings, profilePic }) => {
       ...appointmentData,
     };
     const updatedAppointments = [...appointments, newAppointment];
-    setAppointments(updatedAppointments);
+    updateAppointments(updatedAppointments);
     setShowModal(false);
   };
 
@@ -89,6 +94,8 @@ const DoctorCard = ({ name, speciality, experience, ratings, profilePic }) => {
                     <div className="bookedInfo" key={appointment.id}>
                       <p>Name: {appointment.name}</p>
                       <p>Phone Number: {appointment.phoneNumber}</p>
+                      <p>Date: {appointment.date}</p>
+                      <p>Time: {appointment.selectedSlot}</p>
                       <button onClick={() => handleCancel(appointment.id)}>Cancel Appointment</button>
                     </div>
                   ))}

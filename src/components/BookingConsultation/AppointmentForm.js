@@ -4,16 +4,31 @@ const AppointmentForm = ({ doctorName, doctorSpeciality, onSubmit }) => {
     const [name, setName] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
     const [selectedSlot, setSelectedSlot] = useState(null);
-  
+    const [date, setDate] = useState('');
+
+    const timeSlots = [
+      '11:00 AM', '11:30 AM',
+      '12:00 PM', '12:30 PM',
+      '01:00 PM', '01:30 PM',
+      '02:00 PM', '02:30 PM',
+      '03:00 PM', '03:30 PM',
+      '04:00 PM', '04:30 PM',
+      '05:00 PM', '05:30 PM',
+      '06:00 PM', '06:30 PM',
+      '07:00 PM'
+    ];
+
     const handleSlotSelection = (slot) => {
       setSelectedSlot(slot);
     };
   
     const handleFormSubmit = (e) => {
       e.preventDefault();
-      onSubmit({ name, phoneNumber });
+      onSubmit({ name, phoneNumber, date, selectedSlot });
       setName('');
       setPhoneNumber('');
+      setDate('');
+      setSelectedSlot('');
     };
   
     return (
@@ -37,6 +52,30 @@ const AppointmentForm = ({ doctorName, doctorSpeciality, onSubmit }) => {
             onChange={(e) => setPhoneNumber(e.target.value)}
             required
           />
+        </div>
+        <div className="form-group">
+          <label htmlFor="date">Date:</label>
+          <input
+            type="date"
+            id="date"
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="timeSlot">Time Slot:</label>
+          <select
+            id="timeSlot"
+            value={selectedSlot}
+            onChange={(e) => setSelectedSlot(e.target.value)}
+            required
+          >
+            <option value="">Select a time slot</option>
+            {timeSlots.map(slot => (
+              <option key={slot} value={slot}>{slot}</option>
+            ))}
+          </select>
         </div>
         <button type="submit">Book Now</button>
       </form>
