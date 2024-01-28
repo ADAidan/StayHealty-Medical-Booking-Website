@@ -60,7 +60,12 @@ const ReviewForm = () => {
                     <p>Dentist</p>
                 </div>
                 <div className="grid-item">
-                    <button onClick={handleClick} className="review-button">Give Review</button>
+                    <button 
+                    onClick={handleClick} 
+                    className="review-button"
+                    style={{
+                        backgroundColor: feedback && "grey"
+                    }}>{feedback ? 'Reviewed' : 'Give Review'}</button>
                 </div>
                 <div className="grid-item">
                     <p>{feedback}</p>
