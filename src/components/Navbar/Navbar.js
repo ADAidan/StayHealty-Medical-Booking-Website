@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
 import "./Navbar.css";
-
-
+import ProfileCard from "../ProfileCard/ProfileCard";
 
 const Navbar = () => {
     const [click, setClick] = useState(false);
@@ -14,6 +12,12 @@ const Navbar = () => {
     const [showDropdown, setShowDropdown] = useState(false);
     const handleClick = () => setClick(!click);
 
+    const expandProfile = () => {
+      console.log("expand profile");
+      console.log(showDropdown);
+      setShowDropdown(!showDropdown);
+      console.log(showDropdown);
+    };
     
     const handleLogout = () => {
         sessionStorage.removeItem("auth-token");
@@ -74,13 +78,14 @@ const Navbar = () => {
         </li>
         {isLoggedIn?(
           <>
-            <p>Logged in as {username}</p>
-            <li className="link">
-              <button className="btn2" onClick={handleLogout}>
-                Logout
-              </button>
-            </li>
-            
+          <li>
+            <Link to="/profile">Logged in as {username}</Link>
+          </li>
+          <li className="link">
+            <button className="btn2" onClick={handleLogout}>
+              Logout
+            </button>
+          </li>
           </>
         ) : (
           <>
