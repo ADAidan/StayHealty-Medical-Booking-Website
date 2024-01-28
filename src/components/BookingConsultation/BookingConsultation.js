@@ -39,7 +39,6 @@ const InstantConsultation = () => {
                 
             const filtered = doctors.filter(
                 (doctor) =>
-                // 
                 doctor.speciality.toLowerCase().includes(searchText.toLowerCase())
                 
             );

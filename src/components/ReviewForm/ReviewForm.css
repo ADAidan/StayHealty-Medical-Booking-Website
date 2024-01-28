@@ -31,7 +31,7 @@
 
 .grid-item {
     display: flex;
-    text-align: left; /* Center the content within each grid item */
+    text-align: left;
     align-items: center;
     border-bottom: 1px solid grey;
     margin: 0%;

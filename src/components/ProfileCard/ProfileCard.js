@@ -7,7 +7,6 @@ const ProfileCard = () => {
     const [phoneNumber, setPhoneNumber] = useState("");
 
     const handleSave = () => {
-        // Save the data here
         console.log("Email:", email);
         console.log("Name:", name);
         console.log("Phone Number:", phoneNumber);

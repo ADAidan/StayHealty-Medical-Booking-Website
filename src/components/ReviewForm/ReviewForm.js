@@ -25,7 +25,6 @@ const ReviewForm = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        // Add your logic to handle form submission here
     };
 
     return (
